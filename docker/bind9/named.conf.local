@@ -1,0 +1,8 @@
+zone "domain.local" {
+    type master;
+    file "/etc/bind/zones/db.domain.local";
+};
+zone "0.168.192.in-addr.arpa" {
+    type master;
+        file "/etc/bind/zones/reverse.domain.local";
+};

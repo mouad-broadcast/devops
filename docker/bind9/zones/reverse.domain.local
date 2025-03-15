@@ -1,0 +1,14 @@
+;
+; BIND data file for reverse zone
+;
+$TTL    604800
+@       IN      SOA     ns1.domain.local. admin.domain.local. (
+                              3         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+@       IN      NS      ns1.domain.local.
+1       IN      PTR     ns1.domain.local.
+2       IN      PTR     www.domain.local.

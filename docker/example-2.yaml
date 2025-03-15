@@ -1,0 +1,20 @@
+version: '3.8'
+
+networks:
+  local:
+
+services:
+  database:
+    image: postgres:15.2-alpine
+    container_name: 'postgresqldb'
+    restart: always
+    networks:
+      - local
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./postgresql-db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: USER
+      POSTGRES_PASSWORD: PASSWORD
+      POSTGRES_DB: database_name

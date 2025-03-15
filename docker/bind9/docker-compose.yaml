@@ -1,0 +1,30 @@
+version: '3.8'
+
+networks:
+  dns:
+
+services:
+  server:
+    build:
+      context: .
+    container_name: 'bind9'
+    restart: always
+    networks:
+      -  dns
+    ports:
+      - '30053:53/tcp'
+      - '30053:53/udp'
+    environment:
+      TZ: UTC
+
+  client:
+    image: mouadmin/jessie-dnsutils:1.3
+    stdin_open: true 
+    tty: true 
+    container_name: 'dnsutils'
+    restart: always
+    networks:
+      -  dns
+    environment:
+      TZ: UTC
+
